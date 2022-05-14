@@ -158,7 +158,7 @@
 					}
 				
 			CSS the :lang psudo class :
-				/* the :lang defines quotation mark for <q> witj lang="no" */
+				/* the :lang defines quotation mark for <q> with lang="no" */
 				q:lang(no) {
 					quotes: "😂" "😂";
 				}
