@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background-color: #E7E9EB;
+    }
+    
+    #myDIV {
+        width: 200px;
+        padding: 10px;
+        border: 10px solid lightcoral;
+        background-color: #FFFFFF;
+    }
+    
+    #blueDIV {
+        margin-top: 10px;
+        width: 200px;
+        border: 10px solid lightcoral;
+        padding: 10px;
+        background-color: lightblue;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <h1>The box-sizing property</h1>
+    <div id="myDIV">
+        I'm a BOX with width and height 200px, border 10px and padding 10px. The default box-sizing property content-box is in action.So the total width of the box is 200 + 5x2 + 10x2 = 230px
+    </div>
+    <div id="blueDIV">
+        I'm a BOX with box-sizing property set to border-box. The width of the box is unaffected by the padding 10px and border 30px. This is not the case when one sets the box-sizing property to default which is content-box.
+    </div>
+</body>
+
+</html>

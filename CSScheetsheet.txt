@@ -1,0 +1,261 @@
+	CSS Selectors :
+	
+		1. CSS Element selector :
+			p {
+				text-align: center;
+				color: lightblue;
+			}
+			
+		2. CSS Id selector :
+			#hide {
+				display: none;
+			}
+			
+		3. CSS class selector :
+			.hide {
+				display: none;
+			}
+		4. Combinamtion of element and class/id :
+		
+			Target the p element with a class="hide"
+			p.hide {
+				display: none;
+			}
+			
+			A p element with two classes :
+			<p class="center, large"> This para p is targetted with two classes.</p>
+			
+		4. CSS universal selector 
+			
+			This CSS rule targets effectively every element on the page :
+			* {
+				text-align: center;
+				color: blue;
+			}
+			
+		5. CSS grouping of selectors :
+
+			h1, h2, h3 {
+				font-family: 'Vardana';
+			}
+			
+		6. CSS Combinator selectors :
+				a. Descendant selector :
+				
+					div p {
+						background-color: yellow; // All p elements of div
+					}
+					
+				b. Child selector (>) :
+
+					div > p {
+						text-align: centger;  // Unlike descendant only direct Children <p> of of div 
+					}
+					// Descendants are all direct, indirect children of its paraent.
+					
+				c. Adjacent sibling selector (+) :
+				
+					div + p {
+						text-align: justify; // targets a p element placed outside, immediately after div. (not inside div) 
+					}
+		
+				d. The general sibling selector (~) :
+				
+					div ~ p {
+						text-align: right; // All p siblings after a div.
+					}
+				
+	CSS Psudo Class :
+	
+		1. Anchor psudo class :
+		
+			/* Unvisited link */
+			a:link {
+				color: #FF0000;
+			}
+			
+			/* visited link */
+			a:visited {
+				color: #00FF00;
+			}
+			
+			/* mouse over link */
+			a:hover {
+				color: #FF00FF;
+			}
+			
+			/* selected link */
+			a:active {
+				color: #0000FF;
+			}
+			
+			/* a:hover MUST come after a:link and a:visited in order to be effective in CSS rule
+			   a:active MUST come after a:hover
+			*/
+		
+		2. Psudo class with CSS class :
+		
+				p.highlight:hover {
+					color: #FF0000;
+				}
+				
+				<body>
+					<p class="highlight">Some text.</p>
+				</body>
+				
+			Hover on <div> :
+				div {
+					background-color: lightgreen;
+					color: white;
+					padding: 25px;
+					text-align: center;
+				}
+				
+				div:hover {
+					color: lightblue;
+				}
+				
+				<body>
+					<div>Mouse over me </div>
+				</body>
+				
+			Simple tool-tip hover :
+				p {
+					display: none;
+					background-color: yellow;
+					padding: 20px;
+				}
+				div:hover p {
+					display: block;
+				}
+				
+				<body>
+					<div>Hover over me to show the p element
+					  <p>Olah !! Here I am.</p>
+				</body>
+				
+			CSS the :first-child and the :last-child psudo class :
+				p:first-child {
+				  color: blue;
+				}
+				p:last-child {
+					color: green;
+				}
+				
+				<body>
+					<p> Some text here </p> <!-- colors blue -->
+					<p> Some text here </p> <!-- colors green -->
+				</body>
+				
+				More examples :
+					/* the first <i> element of all <p> elements */
+					p i:first-child {
+						color: blue;
+					}
+					/* All <i> element of the first child <p> element */
+					p:first-child i {
+						color: blue;
+					}
+				
+			CSS the :lang psudo class :
+				/* the :lang defines quotation mark for <q> witj lang="no" */
+				q:lang(no) {
+					quotes: "😂" "😂";
+				}
+				
+				<body>
+					<p>Some text <q lang="no">smile a while </q> Some text</p> 
+				</body>
+				
+		3. CSS Pseudo elements :
+			
+			The ::first-line psudo element:
+			/* Adds specific style to the first line of the text */
+			p::first-line {
+				color: #FF0000;
+				font-variant: small-caps;
+			}
+			
+			The ::first-letter pseudo element:
+			/* Adds specific style to the first letter of a text */
+			p::first-letter {
+				color: #ff0000;
+				font-size: xx-large;
+			}
+			
+			
+		4. Pseudo element and CSS class :
+			
+			p.intro::first-letter {
+				color: #ff0000;
+				font-size: 200%;
+			}
+			
+			<body>
+				<p class="intro">This is an introduction</p>
+			</body>
+			
+			The ::before pseudo element :
+			
+			h1::before {
+				content: url(smiley.gif); /* adds smiley.gif before <h1> content. */
+			}
+			
+			The ::after pseudo element
+			
+			h1::after {
+				content: url(smiley.gif) /* adds smiely.gif after <h1> content */
+			}
+			
+			The ::marker pseudo element :
+			
+			::marker {
+			  color: red;
+			  font-size: 23px;
+			}
+			
+			<body>
+				<ul>
+					<li>Coffee</li>
+					<li>Tea</li>
+					<li>Milk</li>
+				</ul>
+				
+				<ol>
+					<li>First</li>
+					<li>Second</li>
+					<li>Third</li>
+				</ol>
+			</body>
+			
+			The ::selection pseudo element :
+			
+			/* Makes the selected text red and background yellow */
+			::selection {
+				color: red;
+				background: yellow;
+			}
+			
+	CSS [attribute] selector :
+		
+		a[target] {
+			background-color: lightyellow;
+		}
+		
+		<body>
+		     /* The element <a> with the attribute target gets background yellow */
+			<a href="https://www.disney.com" target="_blank">Disney.com</a>
+			<a href:"https://www.wikipedia.org">Wikipedia</a>
+		</body>
+		
+		
+	CSS [attribute="value"] selector :
+
+		a[target="_blank"] {
+			background-color: lightblue;
+		}
+		
+		<body>
+			<a href="https://wwww.disney.com" target="_blank">Disney.com</a>
+			<a href="https://www.wilipedia.org" target="_top">Wikipedia</a>
+		</body>
